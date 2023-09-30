@@ -55,7 +55,9 @@ target_include_directories(Crow
 		$<INSTALL_INTERFACE:include>
 )
 
-find_package(asio REQUIRED)
+if(NOT TARGET asio::asio)
+	find_package(asio REQUIRED)
+endif()
 
 target_link_libraries(Crow
 	INTERFACE
